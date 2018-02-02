@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Respect\\Relational' => array($vendorDir . '/respect/relational/library'),
-    'Respect\\Data' => array($vendorDir . '/respect/data/library'),
-    '' => array($baseDir . '/src'),
+    'Twig_' => array($vendorDir . '/twig/twig/lib'),
+    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
+    'Pimple' => array($vendorDir . '/pimple/pimple/src'),
 );
