@@ -1,0 +1,55 @@
+{% extends "home-template/home-template.twig" %}
+{% block content %}
+<div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h2 style="color: #FFF">Lista de usuários</h2>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="{{base_url()}}/action-log" style="text-decoration: none;" title="Visualizar acções dos usuários"><h2 style="color: #FFF; text-align: right;">Action log</h2></a>
+                        </div>
+                    </div>
+                    <br>
+                    {% if users == '' %}
+                        <h3 class="text-center" style="color: #FFF">Tabela das acções vazia!</h3>
+                    {% else %}
+                    <div class="table-responsive">       
+                        <table class="table table-condensed">
+                          <thead>
+                            <tr style="background-color: #FFF">
+                              <th>#</th>
+                              <th>Nome</th>
+                              <th>E-mail</th>
+                              <th>Função</th>
+                              <th>Cadastrado</th>
+                              <th>Acção</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% set i = 0 %}
+                            {% for user in users|reverse %}
+                                {% set i = i+1 %}
+                                <tr style="background-color: #FFF">
+                                    <td>{{ i }}</td>
+                                    <td>{{ user.name }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.roles }}</td>
+                                    <td>{{ user.created_at }}</td>
+                                    <td>
+                                        <a href="#Ausers" data-toggle="modal" title="Adicionar usuário"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                                        <a href="#EUsers" data-toggle="modal" title="Editar usuário" data-id="{{ user.id }}" data-username="{{ user.name }}" data-userole="{{ user.roles }}"><span class="glyphicon glyphicon-edit"></span></a>
+                                        <a href="#deleteUser" data-toggle="modal" title="Deletar usuário" data-id="{{ user.id }}"><span class="glyphicon glyphicon-trash"></span></a>
+                                    </td>
+                                </tr>   
+                            {% endfor %}    
+                          </tbody>
+                        </table>
+                    </div>
+                    {% endif %}
+                </div>                
+            </div>
+        </div>  
+{% endblock %}    
+   

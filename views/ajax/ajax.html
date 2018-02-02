@@ -1,0 +1,553 @@
+<script type="text/javascript">
+    
+    $("#adUser").click(function(){
+ 
+        var email = $("#email").val();
+        var pass = $("#pass").val();
+        var funcao = $("#funcao").val();
+        var nome = $("#nome").val();
+
+        $.ajax({
+                                    
+            method: 'POST',
+            url: 'http://api-taylor/add-user',
+            dataType: 'json',
+            data: {email : email, nome : nome, pass : pass, funcao : funcao },
+            success: function(data){
+                
+                var field = data['resp'];
+                var msg = data['msg'];
+                                                                            
+                switch(field){
+                                                    
+                    case 'yes':
+                        $("#adresult").removeClass('alert-danger');
+                        $("#adresult").addClass('alert-success text-center').text(msg);
+                        $("#adUser").prop("disabled",true);
+                                    
+                    break;
+                    case 'no':
+                        $("#adresult").removeClass('alert-success');
+                        $("#adresult").addClass('alert-danger text-center').text(msg);
+                                    
+                    break;
+                    case 'emp':
+                        $("#adresult").removeClass('alert-success');
+                        $("#adresult").addClass('alert-danger text-center').text(msg);
+                                    
+                    break;
+                    default:
+                                                       
+                }
+                                          
+           }
+        });
+    });
+
+    $("#adGuest").click(function(){
+ 
+        var gemail = $("#gemail").val();
+        var gphone = $("#gphone").val();
+        var gcidade = $("#gcidade").val();
+        var gmorada = $("#gmorada").val();
+        var gcap = $("#gcap").val();
+        var gnome = $("#gnome").val();
+        var gbirth = $("#gbirth").val();
+        var grau = $("#grau").val();
+        var gfuncao = $("#gfuncao").val();
+
+
+        if (gemail == '' || gphone == '' || gcidade == '' || gmorada == '' || gcap == '' || gnome == '' || gbirth == '' || grau == '' || gfuncao == '') {
+
+            $("#adGresult").removeClass('alert-success');
+                        $("#adGresult").addClass('alert-danger text-center').text('Existem campos vazios!');
+
+        }else{
+
+            $.ajax({
+                                    
+            method: 'POST',
+            url: 'http://api-taylor/add-guest',
+            dataType: 'json',
+            data: {gemail : gemail, gphone : gphone, gcidade : gcidade, gmorada : gmorada, gcap: gcap, gnome : gnome, gbirth : gbirth, grau : grau, gfuncao : gfuncao },
+            success: function(data){
+                
+                var field = data['resp'];
+                var msg = data['msg'];
+                                                                            
+                switch(field){
+                                                    
+                    case 'yes':
+                        $("#adGresult").removeClass('alert-danger');
+                        $("#adGresult").addClass('alert-success text-center').text(msg);
+                        $("#adGuest").prop("disabled",true);
+                                    
+                    break;
+                    case 'no':
+                        $("#adGresult").removeClass('alert-success');
+                        $("#adGresult").addClass('alert-danger text-center').text(msg);
+                                    
+                    break;
+                    default:
+                                                       
+                }
+                                          
+           }
+        });
+        
+        }
+
+
+        
+    });
+
+    $("#GUESTEDIT").click(function(){
+
+        var mail = $("#mail").val();
+        var fone = $("#fone").val();
+        var city = $("#city").val();
+        var morada = $("#morada").val();
+        var gkap = $("#gkap").val();
+        var ggnome = $("#ggnome").val();
+        var bi = $("#bi").val();
+        var grau = $("#grau").val();
+        var grole = $("#grole").val();
+        var guestid = $("#guestid").val();
+
+        
+        if (mail == '' || fone == '' || city == '' || morada == '' || gkap == '' || ggnome == '' || bi == '' || grau == '' || grole == '' || guestid == '') {
+
+            $("#eGresult").removeClass('alert-success');
+                        $("#eGresult").addClass('alert-danger text-center').text('Existem campos vazios!');
+
+        }else{
+
+            $.ajax({
+                                    
+            method: 'POST',
+            url: 'http://api-taylor/edit-guest',
+            dataType: 'json',
+            data: {mail : mail, fone : fone, city : city, morada : morada, gkap: gkap, ggnome : ggnome, bi : bi, grau : grau, grole : grole, guestid : guestid },
+            success: function(data){
+                
+                var field = data['resp'];
+                var msg = data['msg'];
+                                                                            
+                switch(field){
+                                                    
+                    case 'yes':
+                        $("#eGresult").removeClass('alert-danger');
+                        $("#eGresult").addClass('alert-success text-center').text(msg);
+                        $("#GUESTEDIT").prop("disabled",true);
+                                    
+                    break;
+                    case 'no':
+                        $("#eGresult").removeClass('alert-success');
+                        $("#eGresult").addClass('alert-danger text-center').text(msg);
+                                    
+                    break;
+                    default:
+                                                       
+                }
+                                          
+           }
+        });
+        
+        }
+        
+    });
+
+    $("#adEvent").click(function(){
+ 
+        var desc = $("#desc").val();
+        var local = $("#local").val();
+        var locutor = $("#locutor").val();
+        var tempo = $("#tempo").val();
+        var uid = $("#uid").val();
+        if(desc == '' || locutor == '' || local == '' || tempo == ''){
+
+             $("#adEresult").removeClass('alert-success');
+                        $("#adEresult").addClass('alert-danger text-center').text('Existem campos vazios.');
+
+        }else{
+
+            $.ajax({
+                                    
+            method: 'POST',
+            url: 'http://api-taylor/add-event',
+            dataType: 'json',
+            data: {desc : desc, local : local, locutor : locutor, tempo : tempo, uid : uid },
+            success: function(data){
+                
+                var field = data['resp'];
+                var msg = data['msg'];
+                                                                            
+                switch(field){
+                                                    
+                    case 'yes':
+                        $("#adEresult").removeClass('alert-danger');
+                        $("#adEresult").addClass('alert-success text-center').text(msg);
+                        $("#adEvent").prop("disabled",true);
+                                    
+                    break;
+                    case 'no':
+                        $("#adEresult").removeClass('alert-success');
+                        $("#adEresult").addClass('alert-danger text-center').text(msg);
+                                    
+                    break;
+                    default:
+                                                       
+                }
+                                          
+           }
+        });
+        }
+        
+    });
+
+     $("#cPass").click(function(){
+ 
+        var holdp = $("#hold-pass").val();
+        var newp = $("#new-pass").val();
+        var Auid = $("#Auid").val();
+        
+        if (holdp == '' || newp == '' ) {
+
+            $("#cPresult").removeClass('alert-success');
+                        $("#cPresult").addClass('alert-danger text-center').text('Existem campos vazios!');
+
+        }else{
+
+            $.ajax({
+                                    
+            method: 'POST',
+            url: 'http://api-taylor/change-pass',
+            dataType: 'json',
+            data: {holdp : holdp, newp : newp, Auid : Auid },
+            success: function(data){
+                
+                var field = data['resp'];
+                var msg = data['msg'];
+                                                                            
+                switch(field){
+                                                    
+                    case 'yes':
+                        $("#cPresult").removeClass('alert-danger');
+                        $("#cPresult").addClass('alert-success text-center').text(msg);
+                        $("#cPass").prop("disabled",true);
+                                    
+                    break;
+                    case 'no':
+                        $("#cPresult").removeClass('alert-success');
+                        $("#cPresult").addClass('alert-danger text-center').text(msg);
+                                    
+                    break;
+                    default:
+                                                       
+                }
+                                          
+           }
+        });
+        
+        }
+
+
+        
+    });
+
+    $("#Send").click(function(){
+
+         
+        var tbody = $("#tbody").val();
+        var subj = $("#subj").val();
+        var uid = $("#uid").val();
+        
+        if (tbody == '' || subj == '')
+        {
+             $("#SMSresult").removeClass('alert-success');
+             $("#SMSresult").addClass('alert-danger text-center').text('Existem  campos vazios');
+        }else{
+
+            $.ajax({
+                                    
+            method: 'POST',
+            url: 'http://api-taylor/sms',
+            dataType: 'json',
+            data: {subj : subj, tbody : tbody, uid : uid },
+            success: function(data){
+                
+                var field = data['resp'];
+                var msg = data['msg'];
+                                                                            
+                switch(field){
+                                                    
+                    case 'yes':
+                        $("#SMSresult").removeClass('alert-danger');
+                        $("#SMSresult").addClass('alert-success text-center').text(msg);
+                        $("#Send").prop("disabled",true);
+                                    
+                    break;
+                    case 'no':
+                        $("#SMSresult").removeClass('alert-success');
+                        $("#SMSresult").addClass('alert-danger text-center').text(msg);
+                                    
+                    break;
+                    default:
+                                                       
+                }
+                                          
+           }
+        });
+        }
+        
+    });
+
+    $("#bcota").focusout(function(){
+
+         
+        var bcota = $("#bcota").val();
+       
+        $.ajax({
+                                    
+            method: 'POST',
+            url: 'http://api-taylor/vcotas',
+            dataType: 'json',
+            data: {bcota : bcota },
+            success: function(data){
+                
+                var field = data['resp'];
+                //var msg = data['msg'];
+                var dado = data['dado'];
+                                                                            
+                switch(field){
+                                                    
+                    case 'yes':
+
+                        $("#Cresult").removeClass('alert-danger');
+
+                        for (var key in dado) {
+                            
+                            $("#Cresult").addClass('alert-success text-center').text(dado[key].name);
+                            $("#idCota").val(dado[key].guestid);
+                        }
+                        
+                        $("#de").prop("readonly",false);
+                        $("#para").prop("readonly",false);
+                        $("#cash").prop("readonly",false);
+                        
+                        
+                        $("#pay").prop("disabled",false);
+                                    
+                    break;
+                    case 'no':
+                        $("#Cresult").removeClass('alert-success');
+                        $("#Cresult").addClass('alert-danger text-center').text(msg);
+                                    
+                    break;
+                    default:
+                                                       
+                }
+                                          
+           }
+        });
+    });
+
+    $("#pay").click(function(){
+
+         
+        var idCota = $("#idCota").val();
+        var de     = $("#de").val();
+        var para   = $("#para").val();
+        var cash   = $("#cash").val();
+       
+        $.ajax({
+                                    
+            method: 'POST',
+            url: 'http://api-taylor/cotas',
+            dataType: 'json',
+            data: {idCota : idCota, de : de, para : para, cash : cash },
+            success: function(data){
+                
+                var field = data['resp'];
+                var msg = data['msg'];
+                
+                                                                            
+                switch(field){
+                                                    
+                    case 'yes':
+
+                        $("#Cresult").removeClass('alert-danger');
+                        $("#Cresult").addClass('alert-success text-center').text(msg);
+                        $("#pay").prop("disabled",true);
+                                    
+                    break;
+                    case 'no':
+                        $("#Cresult").removeClass('alert-success');
+                        $("#Cresult").addClass('alert-danger text-center').text(msg);
+                                    
+                    break;
+                    default:
+                                                       
+                }
+                                          
+           }
+        });
+    });
+
+    $("#eUser").click(function(){
+
+        var euid = $("#euid").val();
+        var nome    = $("#unome").val();
+        var email   = $("#email").val();
+        if(nome == '' || email == ''){
+
+            $("#EUresult").removeClass('alert-success');
+                        $("#EUresult").addClass('alert-danger text-center').text('Existem campos vazios.');
+
+        }else{
+
+            $.ajax({
+                                    
+            method: 'POST',
+            url: 'http://api-taylor/edit-user',
+            dataType: 'json',
+            data: {euid : euid, nome : nome, email : email },
+            success: function(data){
+                
+                var field = data['resp'];
+                var msg = data['msg'];
+                
+                                                                            
+                switch(field){
+                                                    
+                    case 'yes':
+
+                        $("#EUresult").removeClass('alert-danger');
+                        $("#EUresult").addClass('alert-success text-center').text(msg);
+                        $("#eUser").prop("disabled",true);
+                                    
+                    break;
+                    case 'no':
+                        $("#EUresult").removeClass('alert-success');
+                        $("#EUresult").addClass('alert-danger text-center').text(msg);
+                                    
+                    break;
+                    default:
+                                                       
+                }
+                                          
+           }
+        });
+
+        }
+        
+    });
+
+    $("#USEREDIT").click(function(){
+
+        var userID = $("#userID").val();
+        var username    = $("#username").val();
+        var userole   = $("#userole").val();
+        if(userole =='Função'){
+
+            $("#RESULT").removeClass('alert-success');
+                        $("#RESULT").addClass('alert-danger text-center').text('Deve escolher uma função');
+
+        }else{
+
+            $.ajax({
+                                    
+            method: 'POST',
+            url: 'http://api-taylor/edit-uuser',
+            dataType: 'json',
+            data: {userID : userID, userole : userole },
+            success: function(data){
+                
+                var field = data['resp'];
+                var msg = data['msg'];
+                
+                                                                            
+                switch(field){
+                                                    
+                    case 'yes':
+
+                        $("#RESULT").removeClass('alert-danger');
+                        $("#RESULT").addClass('alert-success text-center').text(msg);
+                        $("#USEREDIT").prop("disabled",true);
+                                    
+                    break;
+                    case 'no':
+                        $("#RESULT").removeClass('alert-success');
+                        $("#RESULT").addClass('alert-danger text-center').text(msg);
+                                    
+                    break;
+                    default:
+                                                       
+                }
+                                          
+           }
+        });
+
+        }
+        
+    });
+
+$("#reset-pass").click(function(){
+ 
+    var pass1 = $("#pass1").val();
+    var pass2 = $("#pass2").val();
+    var IDm = $("#IDm").val();
+
+    if(pass1 == '' || pass2 == '')
+    {
+        $("#result-pass").removeClass('text-success');
+        $("#result-pass").addClass('text-danger text-center').text('Existem campos vazios.');
+                           
+    }
+    else
+    {
+        if(pass1 != pass2)
+        {
+            $("#result-pass").removeClass('text-success');
+            $("#result-pass").addClass('text-danger text-center').text('Senhas incompatíveis');
+                           
+        }
+        else
+        {
+            $.ajax({
+                                    
+            method: 'POST',
+            url: 'http://api-taylor/reset-npass',
+            dataType: 'json',
+            data: {mail: mail},
+            success: function(data){
+                var field = data['resp'];
+                var msg = data['msg'];
+                                                                            
+                switch(field){
+                                                    
+                    case 'yes':
+                         $("#result-pass").removeClass('text-danger');
+                        $("#result-pass").addClass('text-success text-center').text(msg);
+                        $("#reset-pass").prop("disabled",true);
+                    break;
+                    case 'no':
+                        $("#result-pass").removeClass('text-success');
+                        $("#result-pass").addClass('text-danger text-center').text(msg);
+                                    
+                    break;
+                    default:
+                                                       
+                }
+                                              
+           }
+          });
+
+        }
+
+    }
+                            
+    
+});
+
+</script>

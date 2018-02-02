@@ -1,0 +1,139 @@
+{% if auth.check %}
+    
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>GMPLA - Gestão de Actividades</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="MPLA">
+        <meta name="keywords" content="MPLA" />
+        <!--styles-->
+        <link href="{{ base_url() }}/styles/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="{{ base_url() }}/styles/css/source-style.css" rel="stylesheet" type="text/css">
+        <!--fonts-->
+        <link href="{{ base_url() }}/styles/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Lobster:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+        <!--JQUEQY-->
+        <script src="{{ base_url() }}/styles/js/jquery-3.2.1.min.js"></script>
+      
+    </head>
+    <body>
+        
+        <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ base_url() }}/user">CRUD</a>
+        </div>
+        <form class="navbar-form navbar-left" role="search" method="post" action="{{ base_url() }}/search">
+                  
+            <div class="form-group  has-feedback">  
+            <input type="text" class="form-control placeholder" name="search" placeholder="Por KAP ou nº telefónico">
+            <a><span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span></a>
+            </div>
+                  
+        </form>
+        <div id="navbar" class="navbar-collapse collapse pull-right">
+          <ul class="nav navbar-nav">
+              <li><a href="#notification" data-toggle="modal" ><i class='glyphicon glyphicon-bell'></i> Notificações <span class="badge" id="News"></span></a></li>
+            <li><a href="#ajuda" data-toggle="modal" ><i class='glyphicon glyphicon-question-sign'></i> Ajuda</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class='glyphicon glyphicon-user'></i> {{ auth.user.name | convert_encoding('ISO-8859-1', 'UTF-8') }} <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#perfil" data-toggle="modal" ><i class='glyphicon glyphicon-edit'></i> Editar perfil</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#changePass" data-toggle="modal" ><i class='glyphicon glyphicon-edit'></i> Alterar senha</a></li>
+
+                
+                <li role="separator" class="divider"></li>
+                
+                <li><a href="{{ base_url() }}/logout"><i class='glyphicon glyphicon-log-out'></i> Sair</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div style="padding-top: 150px;"></div>
+    <main>
+    {% block content %}{% endblock %}
+    </main>
+    <!--Modals-->
+    {% include 'modals/modals.html' %} 
+          
+    <!-- jQuery -->
+    
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script-->
+    <script src="{{ base_url() }}/styles/js/ajax-code.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ base_url() }}/styles/js/bootstrap.min.js"></script>
+    
+    
+   
+    <script type="text/javascript">
+        //Verify data
+        
+            
+        $('#deleteGuestModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget); 
+          var description = button.data('title');
+          var id = button.data('id');
+          
+          var modal = $(this);
+          modal.find('#guest-name').text("Deletar o(a) Sr(a) " + description + "?");
+          modal.find('#gid').val(id);
+          
+        });
+
+        //Edit and Delete Events
+        $('#eventModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget); // Button that triggered the modal
+          var description = button.data('desc'); // Extract info from data-* attributes
+          var rnome = button.data('nome');
+          var local = button.data('local');
+          var hora = button.data('temp');
+          var ide = button.data('id');
+          
+          var modal = $(this);
+          modal.find('#desc').val(description);
+          modal.find('#nome').val(rnome);
+          modal.find('#local').val(local);
+          modal.find('#hora').val(hora);
+          modal.find('#ide').val(ide);
+          
+        });
+            
+        $('#deleteEventModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget);
+          var ide = button.data('ide');
+          
+          var modal = $(this);
+          modal.find('#eid').val(ide);
+          
+        });
+
+       
+
+
+    </script>
+
+    {% include 'ajax/ajax.html' %}
+   
+    </body>
+</html>
+{% else %}
+<script>window.location="{{ base_url() }}";</script>
+{% endif %}

@@ -1,0 +1,84 @@
+
+{% extends "home-template/home-template.twig" %}
+{% block content %}
+                  
+        <div class="container text-center">
+            <div class="row">
+                {% if auth.user.roles == 'Admin' %}
+                <div class="col-md-6">
+                    <a href="{{ base_url() }}/users">
+                    <span class="fa-stack fa-4x" id="girar">
+                            <i class="fa fa-circle fa-stack-2x iten-color"></i>
+                            <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                    </span>
+                    </a>
+                    <h4 class="text-muted">Usuários</h4>
+                </div>
+                {% else %}
+                <div class="col-md-6">
+                    <a href="#" title='Área restrita a Administradores!'>
+                    <span class="fa-stack fa-4x" id="girar">
+                            <i class="fa fa-circle fa-stack-2x iten-color"></i>
+                            <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                    </span>
+                    </a>
+                    <h4 class="text-muted">Usuários</h4>
+                </div>
+                {% endif %}
+                <div class="col-md-6">
+                    <a href='{{ base_url() }}/guests'>
+                    <span class="fa-stack fa-4x" id="girar">
+                            <i class="fa fa-circle fa-stack-2x iten-color"></i>
+                            <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+                    </span>
+                    </a>
+                    <h4 class="text-muted">Militantes</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <a href='{{ base_url() }}/events'>
+                    <span class="fa-stack fa-4x" id="girar">
+                            <i class="fa fa-circle fa-stack-2x iten-color"></i>
+                            <i class="fa fa-calendar fa-stack-1x fa-inverse"></i>
+                    </span>
+                    </a>
+                    <h4 class="text-muted">Agenda </h4>
+                </div>
+                
+                <div class="col-md-6">
+                    <a href="{{ base_url() }}/reports" data-toggle="modal">
+                    <span class="fa-stack fa-4x" id="girar">
+                            <i class="fa fa-circle fa-stack-2x iten-color"></i>
+                            <i class="fa fa-signal fa-stack-1x fa-inverse"></i>
+                    </span>
+                    </a>
+                    <h4 class="text-muted">Relatórios</h4>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <a href='#sms' data-toggle="modal">
+                    <span class="fa-stack fa-4x" id="girar">
+                            <i class="fa fa-circle fa-stack-2x iten-color"></i>
+                            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                    </span>
+                    </a>
+                    <h4 class="text-muted">SMS </h4>
+                </div>
+                
+                <div class="col-md-6">
+                    <a href="#kotas" data-toggle="modal">
+                    <span class="fa-stack fa-4x" id="girar">
+                            <i class="fa fa-circle fa-stack-2x iten-color"></i>
+                            <i class="fa fa-usd fa-stack-1x fa-inverse"></i>
+                    </span>
+                    </a>
+                    <h4 class="text-muted">Cotas</h4>
+                </div>
+                
+            </div>
+        </div>  
+{% endblock %}    
+   
