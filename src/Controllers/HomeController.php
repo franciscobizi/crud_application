@@ -5,6 +5,7 @@ namespace App\Controllers;
 use Slim\Views\Twig as View;
 use App\Controllers\Controller;
 use App\Controllers\Auth;
+use App\Models\Event;
 
 
 class HomeController extends Controller
@@ -69,11 +70,26 @@ class HomeController extends Controller
     public function logged($request, $response)
     {
         
-        $UID = $this->auth::userData();
+        $events = Event::all();
+        $count = Event::where('id')->count();
 
-        return $this->view->render($response, 'home.twig');
+        if (!$events) {
+
+            return $this->view->render($response, 'home.twig',[
+
+            'events' => '',
+            'total' => ''
+
+            ]); 
+        }
+        
+        return $this->view->render($response, 'home.twig',[
+
+            'events' => $events,
+            'total' => $count
+        ]);
     }
-   
+
       
 }
 

@@ -72,6 +72,9 @@ $container['HomeController'] = function ($container) {
     return new \App\Controllers\HomeController($container);
 };
 
+$container['EventController'] = function ($container) {
+    return new \App\Controllers\EventController($container);
+};
 
 
 require __DIR__ .'/../src/Routes/routes.php';
