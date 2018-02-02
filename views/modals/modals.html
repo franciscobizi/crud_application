@@ -49,16 +49,16 @@
                 <div class="modal-body">
                                    
                         <div class="form-group">
-                            <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome" >
+                            <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nome" >
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" id="email" class="form-control" placeholder="E-mail" >
+                            <input type="email" name="mail" id="mail" class="form-control" placeholder="E-mail" >
                         </div>
                         <div class="form-group">
                             <input type="password" name="pass" id="pass" class="form-control" placeholder="Senha" >
                         </div>
                         <div class="form-group">
-                            <input type="text" name="funcao" id="funcao" class="form-control" placeholder="Função" >
+                            <input type="text" name="roleu" id="roleu" class="form-control" placeholder="Função" >
                         </div>
                         <div id="adresult" style="font-size: 14px; padding: 8px;"></div>
                                
@@ -171,207 +171,7 @@
             </div>
           </div>
           <!--Fim do modal-->          <!--EndOfUsersModels-->
-          <!--GuestModels-->
-          <!--ModalEMilitante-->                      
-          <div class="modal fade" id="guestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="exampleModalLabel">Editar Militante</h4>
-                </div>
-                <div class="modal-body">
-                    <div>
-
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                          <li role="presentation" class="active"><a href="#pessoal" aria-controls="home" role="tab" data-toggle="tab">Dados pessoais</a></li>
-                          <li role="presentation"><a href="#endereco" aria-controls="mensal" role="tab" data-toggle="tab">Endereço</a></li>
-                          <li role="presentation"><a href="#cotas" aria-controls="anual" role="tab" data-toggle="tab">Status</a></li>
-                          
-                        </ul>
-
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                          <div role="tabpanel" class="tab-pane active" id="pessoal">
-                              <div class="row">
-                              <div class="col-md-8"> 
-                              
-                              <div class="form-group">
-                                    <div class="text-danger text-center" style="font-weight: bold" id="e-result">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" id="ggnome" class="form-control" placeholder="Nome completo" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" id="bi" title="Data de nascimento" class="form-control" placeholder="Data de nascimento" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" id="grau" class="form-control" placeholder="Grau acadêmico" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" id="grole" class="form-control" placeholder="Função" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="file" id="file" class="form-control" title="Carrega foto do militante" placeholder="Fotografia" >
-                                </div>
-                            </div>
-                            <div class="col-md-4 ">
-                                <div class="form-group"></div>
-                                <img src="{{ base_url() }}/frontend/img/bg.jpg" class="img-rounded img-responsive" title="[foto do militante]" alt="[foto-militante]">
-                            </div>
-                            </div>
-                          </div>
-                          <div role="tabpanel" class="tab-pane" id="endereco">
-                             
-                                <div class="form-group">
-                                    <div class="text-danger text-center" style="font-weight: bold" id="e-result">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" id="city" class="form-control" placeholder="Cidade" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" id="morada" class="form-control" placeholder="Morada" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" id="mail" class="form-control" placeholder="E-mail" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="phone" id="fone" class="form-control" placeholder="Telefone" required>
-                                </div>
-                            
-                          </div>
-                          <div role="tabpanel" class="tab-pane" id="cotas">
-                                <div class="form-group"></div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="gstatus" disabled="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="gkap" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="hidden" class="form-control" id="guestid">
-                                </div>
-                          </div>
-                            
-                        </div>
-
-                    </div>         
-                    <div id="eGresult" style="padding: 8px; font-weight: bold;"></div>        
-                </div>
-                <div class="modal-footer">
-                    <button id="GUESTEDIT" class="btn btn-primary">Guardar</button>
-                    
-                    <button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--Fim do modal-->          <!--ModalEMilitante-->                      
-          <div class="modal fade" id="addGuest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="exampleModalLabel">Cadastrar Militante</h4>
-                </div>
-                <div class="modal-body">
-                    <div>
-
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                          <li role="presentation" class="active"><a href="#add-pessoal" aria-controls="add-pessoal" role="tab" data-toggle="tab">Dados pessoais</a></li>
-                          <li role="presentation"><a href="#add-endereco" aria-controls="add-endereco" role="tab" data-toggle="tab">Endereço</a></li>
-                          
-                        </ul>
-
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                          <div role="tabpanel" class="tab-pane active" id="add-pessoal">
-                                <div style="padding: 10px;"></div>
-                                <div class="form-group">
-                                    <input type="text" name="gnome" id="gnome" class="form-control" placeholder="Nome completo" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="date" name="gbirth" id="gbirth" title="Data de nascimento" class="form-control" placeholder="Data de nascimento" >
-                                </div>
-                                <div class="form-group">
-                                    <select name="grau" id="grau" class="form-control">
-                                        <option >Grau acadêmico</option>
-                                        <option value="Superior">Superior</option>
-                                        <option value="Médio">Médio</option>
-                                        <option value="Básico">Básico</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="gfuncao" id="gfuncao" class="form-control" placeholder="Função de trabalho" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="file" name="file" id="file" class="form-control" title="Carrega foto do militante" placeholder="Fotografia" readonly="">
-                                </div>
-                          </div>
-                          <div role="tabpanel" class="tab-pane" id="add-endereco">
-                                <div style="padding: 10px;"></div>
-                                <div class="form-group">
-                                    <input type="text" name="gcidade" id="gcidade" class="form-control" placeholder="Cidade">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="gmorada" id="gmorada" class="form-control" placeholder="Morada">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" name="gemail" id="gemail" class="form-control" placeholder="E-mail" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="phone" name="gphone" id="gphone" class="form-control" placeholder="Telefone" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="gcap" id="gcap" class="form-control" placeholder="Kap" >
-                                </div>
-                          </div>
-                          
-                          
-                        </div>
-
-                    </div>         
-                    <div id="adGresult" style="padding: 8px; font-weight: bold;"></div>      
-                </div>
-                <div class="modal-footer">
-                    <button id="adGuest" class="btn btn-primary">Cadastrar</button>
-                    
-                    <button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--Fim do modal-->          <!--ModalDMilitantes-->                      
-          <div class="modal fade" id="deleteGuestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="exampleModalLabel"><i class="glyphicon glyphicon-warning-sign"></i> Deletar militante</h4>
-                </div>
-                <div class="modal-body">
-                                        
-                    <h4 class="text-center text-muted" id="guest-name"></h4>
-                </div>
-                <div class="modal-footer">
-                       
-                    <form method="post" action="{{ base_url() }}/delete-guest">
-                    <input type="hidden" name="gid" id="gid"> 
-                    <button type="submit" class="btn btn-primary">Deletar</button>
-                
-                    <button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                </form>    
-                    
-                </div>
-              </div>
-            </div>
-          </div>          <!--EndOfGuestModels-->
+                 
           <!--EventsModels-->
           <!--ModalDeleteEvento-->                      
           <div class="modal fade" id="deleteEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -382,16 +182,13 @@
                   <h4 class="modal-title" id="exampleModalLabel"><i class="glyphicon glyphicon-warning-sign"></i> Deletar evento</h4>
                 </div>
                 <div class="modal-body">
-                    <h4 class="text-center text-muted">Deletar evento?</h4>
-                     <div id="eventResult"></div>   
+                    <h4 class="text-center text-muted text-danger" id="dEresult">Deletar evento?</h4>   
                 </div>
                 <div class="modal-footer">
-                <form method="post" action="{{ base_url() }}/delete-event">
                     <input type="hidden" name="eid" id="eid"> 
-                    <button type="submit" class="btn btn-primary">Deletar</button>
+                    <button type="submit" id="deleteEvent" class="btn btn-primary">Deletar</button>
                 
-                    <button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                </form>    
+                    <button type="button"   class="btn btn-default" data-dismiss="modal">Cancelar</button>    
                 </div>
               </div>
             </div>
@@ -429,7 +226,7 @@
                 <div class="modal-footer">
                         <button id="adEvent" class="btn btn-primary">Cadastrar</button>
                     
-                    <button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                     
                 </div>
               </div>
@@ -443,27 +240,27 @@
                   <h4 class="modal-title" id="exampleModalLabel">Editar evento</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{base_url()}}/edit-event">
+                    <form >
                                <div class="form-group">
                                     <input type="hidden" name="ide" id="ide">
-                                    <input type="text" name="desc" id="desc" class="form-control" placeholder="Descrição" required>
+                                    <input type="text" name="title" id="title" class="form-control" placeholder="Descrição" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="nome" id="nome" class="form-control" placeholder="Responsável" required>
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Responsável" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="local" id="local" class="form-control" placeholder="Local do evento" required>
+                                    <input type="text" name="loca" id="loca" class="form-control" placeholder="Local do evento" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="hora" id="hora" class="form-control" placeholder="Horás" required>
+                                    <input type="text" name="horas" id="horas" class="form-control" placeholder="Horás" required>
                                 </div>
                                 
                 </div>
                 <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" id="edV" class="btn btn-primary">Guardar</button>
                     
                     <button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    </form>
+                    
                     
                 </div>
               </div>
@@ -519,104 +316,6 @@
           
           <!--Fim do modal-->
           
-          <!--ModalDUsers-->                      
-          <div class="modal fade" id="D" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="exampleModalLabel">New message</h4>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="recipient-name" class="control-label">Recipient:</label>
-                      <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="form-group">
-                      <label for="message-text" class="control-label">Message:</label>
-                      <textarea class="form-control" id="message-text"></textarea>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Send message</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--Fim do modal-->
-          <!--ModalSMS-->                      
-          <div class="modal fade" id="sms" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="exampleModalLabel">Enviar mensagens</h4>
-                </div>
-                <div class="modal-body">
-                  <!--form method="post" action="{{ base_url()}}/sms"-->
-                 
-                               <div class="form-group">
-                                    <input type="text" name="subj" id="subj" class="form-control" placeholder="Assunto" required="">
-                                    <input type="hidden" name="uid" id="uid">
-                                </div>
-                               
-                                <div class="form-group">
-                                    <textarea class="form-control" name="tbody" id="tbody" rows="15" placeholder="Corpo da mensagem..." required=""></textarea>
-                                </div>
-                           <div id="SMSresult" style="padding: 8px; font-size: 14px;"></div>     
-                </div>
-                <div class="modal-footer">
-                        <button id="Send" class="btn btn-primary">Enviar</button>
-                       
-                  <!--/form-->
-                    <button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--Fim do modal-->
-          <!--ModalCotas-->                      
-          <div class="modal fade" id="kotas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="exampleModalLabel">Cobrar cotas</h4>
-                </div>
-                <div class="modal-body">
-                              <div class="form-group  has-feedback">  
-                              <input type="text" class="form-control placeholder" name="bcota" id="bcota" placeholder="Localizar militante por nº telefónico">
-                              <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
-
-                              </div>            
-                               
-                                <div class="form-group">
-                                    <input type="text" name="cash" id="cash" class="form-control" placeholder="Volor a cobrar" readonly="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="date" name="de" id="de" class="form-control" placeholder="Cobrar a partir de Y-m-d" title="Cobrar a partir de" readonly="">
-                                    <input type="hidden" name="idCota" id="idCota">
-                                </div>
-                                <div class="form-group">
-                                    <input type="date" name="para" id="para" class="form-control" placeholder="Cobrar até Y-m-d" title="Cobrar até" readonly="">
-                                </div>
-                             <div id="Cresult" style="padding: 8px; font-size: 14px;"></div>  
-                                       
-                </div>
-                <div class="modal-footer">
-                        <button id="pay" class="btn btn-primary" disabled="">Cobrar</button>
-                    </form>
-                    <button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--Fim do modal-->
 
           <!--ModalPass-->                      
           <div class="modal fade" id="changePass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">

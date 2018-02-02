@@ -18,16 +18,20 @@ class EventController extends Controller
      */
     public function createEvent($request, $response)
     {
+        $arr = explode("T", $_POST['tempo']);
+        $Data = $arr[0];
+        $Time = $arr[1];
+
         try {
             
             Event::create([
 
-                'desc'=> $request->getParam('desc'),
-                'local'=> $request->getParam('local'),
-                'locutor'=> $request->getParam('locutor'),
+                'description'=> $_POST['desc'],
+                'local'=> $_POST['local'],
+                'locutor'=> $_POST['locutor'],
                 'e_date'=> $Data,
                 'e_time'=> $Time,
-                'user_id'=> $request->getParam('uid')
+                'user_id'=> $_POST['uid']
 
             ]);
 
@@ -86,7 +90,7 @@ class EventController extends Controller
     public function deleteEvent($request, $response)
     {
         
-        $id = $_POST['eid'];
+        $id = $_POST['id'];
 
         try {
 

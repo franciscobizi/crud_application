@@ -7,6 +7,7 @@ class Auth
 {
     
 
+
     public function checkUser($email, $passw)
     {
         // Check the information on database if exits

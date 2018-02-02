@@ -71,9 +71,8 @@ class HomeController extends Controller
     {
         
         $events = Event::all();
-        $count = Event::where('id')->count();
 
-        if (!$events) {
+        if ($events->isEmpty()) {
 
             return $this->view->render($response, 'home.twig',[
 
@@ -86,7 +85,7 @@ class HomeController extends Controller
         return $this->view->render($response, 'home.twig',[
 
             'events' => $events,
-            'total' => $count
+            'total' => $events->count()
         ]);
     }
 

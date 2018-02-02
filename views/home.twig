@@ -15,6 +15,7 @@
                         </a>
                         </div>
                     {% else %}
+                    <h3 >Total : {{total}}</h3>
                     <div class="table-responsive">
                           
                     <table class="table table-striped">
@@ -37,10 +38,10 @@
                                 <td>{{ event.description }}</td>
                                 <td>{{ event.local  }}</td>
                                 <td>{{ event.locutor  }}</td>
-                                <td>{{ event.temp }} {{ event.hora }}</td>
+                                <td>{{ event.e_date }} {{ event.e_time }}</td>
                                 <td >
                                     <a href="#aevent" data-toggle="modal" title="Cadastrar"><span class="glyphicon glyphicon-plus-sign" ></span></a>
-                                    <button type="button" data-target="#eventModal" data-toggle="modal"  role="button" style=" background-color: transparent; border-style: none;"  data-id="{{ event.id }}" data-nome="{{ event.locutor }}" data-desc="{{ event.description }}" data-local="{{ event.local }}" data-temp="{{ event.temp }} {{ event.hora }}" title="Deletar"><span class="glyphicon glyphicon-edit" ></span></button>
+                                    <button type="button" data-target="#eventModal" data-toggle="modal"  role="button" style=" background-color: transparent; border-style: none;"  data-id="{{ event.id }}" data-nome="{{ event.locutor }}" data-desc="{{ event.description }}" data-local="{{ event.local }}" data-temp="{{ event.e_date }} {{ event.e_time }}" title="Deletar"><span class="glyphicon glyphicon-edit" ></span></button>
                                     <button type="button" data-target="#deleteEventModal" data-toggle="modal"  role="button" style=" background-color: transparent; border-style: none;"  data-ide="{{ event.id }}" title="Deletar"><span class="glyphicon glyphicon-trash" ></span></button>
                                 </td>
                             </tr> 

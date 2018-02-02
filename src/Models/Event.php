@@ -16,8 +16,7 @@ class Event extends Model
         'locutor',
         'e_date',
         'e_time',
-        'user_id',
-        'updated_at'
+        'user_id'
 
     ];
 

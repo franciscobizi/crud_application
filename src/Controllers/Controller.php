@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Controllers;
+use App\Controllers\Validation;
 
-
-class Controller
+class Controller extends Validation
 {
     protected $container;
     
