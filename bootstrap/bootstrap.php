@@ -62,7 +62,9 @@ $container['view'] = function ($container) {
     $view->getEnvironment()->addGlobal("auth",[
 
         'check' => $container->auth->check(),
-        'user'  => $container->auth->userData()
+        'user'  => $container->auth->userData(),
+        'push'  => $container->auth->push(),
+        'pushs'  => count($container->auth->push())
     ] );
 
     return $view;

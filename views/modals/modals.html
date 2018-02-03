@@ -281,7 +281,7 @@
                   <h4 class="modal-title" id="exampleModalLabel">Notificação</h4>
                 </div>
                         <div class="modal-body">
-                        {% if auth.pushn == 0 %}
+                        {% if auth.pushs == 0 %}
                             <h4 class="text-center text-muted">Nenhuma notificação</h4>
                                                
                         {% else %}
@@ -290,7 +290,7 @@
                         <div class="table-responsive">       
                         <table class="table table-condensed">
                           <thead>
-                            <tr style="background-color: #FFF">
+                            <tr >
                               
                               <th>Descrição</th>
                               <th>Orador</th>
@@ -298,11 +298,11 @@
                             </tr>
                           </thead>
                           <tbody>
-                            {% for new in auth.pushNews %}
-                            <tr style="background-color: #FFF">
+                            {% for new in auth.push %}
+                            <tr >
                             <td>{{ new.description }}</td>
                             <td>{{ new.locutor }}</td>
-                            <td>{{ new.temp }} {{ new.hora }} </td>
+                            <td>{{ new.e_date }} {{ new.e_time }} </td>
                             </tr>
                             {% endfor %}    
                           </tbody>

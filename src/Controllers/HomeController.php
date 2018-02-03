@@ -70,7 +70,12 @@ class HomeController extends Controller
     public function logged($request, $response)
     {
         
-        $events = Event::all();
+        
+        $page      = ($request->getParam('page', 0) > 0) ? $request->getParam('page') : 1;
+        $limit     = 2; // Number of posts on one page
+        $skip      = ($page - 1) * $limit;
+        $events = Event::all();; // Count of all available posts
+        $count = $events->count();
 
         if ($events->isEmpty()) {
 
@@ -83,10 +88,23 @@ class HomeController extends Controller
         }
         
         return $this->view->render($response, 'home.twig',[
-
-            'events' => $events,
+            'pagination'    => [
+                'needed'        => $count > $limit,
+                'count'         => $count,
+                'page'          => $page,
+                'lastpage'      => (ceil($count / $limit) == 0 ? 1 : ceil($count / $limit)),
+                'limit'         => $limit,
+            ],
+            'events' => Event::limit($limit)->offset($skip)->get(),
             'total' => $events->count()
         ]);
+    }
+
+    public function push(){
+
+        $push = $this->auth->push();
+
+        var_dump($push);
     }
 
       

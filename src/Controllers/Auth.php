@@ -9,7 +9,7 @@ class Auth
     
     public function push()
     {
-        $date = date('Y/m/d', strtotime('+1 days'));
+        $date = date('Y-m-d', strtotime('+1 days'));
         $push = Event::where('e_date', $date)->first();
         return $push;
     }
