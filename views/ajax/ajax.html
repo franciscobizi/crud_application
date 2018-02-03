@@ -85,6 +85,57 @@
         });
     });
 
+    $("#edEvent").click(function(){
+ 
+        var desc = $("#title").val();
+        var local = $("#loca").val();
+        var locutor = $("#name").val();
+        var tempo = $("#horas").val();
+        var uid = $("#ide").val();
+
+        if(desc == '' || locutor == '' || local == '' || tempo == ''){
+
+             $("#edEresult").removeClass('alert-success');
+                        $("#edEresult").addClass('alert-danger text-center').text('Existem campos vazios.');
+
+        }else{
+
+            $.ajax({
+                                    
+            method: 'POST',
+            url: 'http://localhost/crud_application/update',
+            dataType: 'json',
+            data: {desc : desc, local : local, locutor : locutor, tempo : tempo, uid : uid },
+            success: function(data){
+                
+                var field = data['resp'];
+                var msg = data['msg'];
+                                                                            
+                switch(field){
+                                                    
+                    case 'yes':
+                        $("#edEresult").removeClass('alert-danger');
+                        $("#edEresult").addClass('alert-success text-center').text(msg);
+                        //$("#edEvent").prop("disabled",true);
+
+                        setTimeout(window.location.reload(), 100000);
+                                    
+                    break;
+                    case 'no':
+                        $("#edEresult").removeClass('alert-success');
+                        $("#edEresult").addClass('alert-danger text-center').text(msg);
+                                    
+                    break;
+                    default:
+                                                       
+                }
+                                          
+           }
+        });
+        }
+        
+    });
+
     $("#adEvent").click(function(){
  
         var desc = $("#desc").val();

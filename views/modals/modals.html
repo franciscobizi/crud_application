@@ -231,7 +231,9 @@
                 </div>
               </div>
             </div>
-          </div>          <!--ModalEEvent-->                      
+          </div>         
+
+           <!--ModalEEvent-->                      
           <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -240,7 +242,6 @@
                   <h4 class="modal-title" id="exampleModalLabel">Editar evento</h4>
                 </div>
                 <div class="modal-body">
-                    <form >
                                <div class="form-group">
                                     <input type="hidden" name="ide" id="ide">
                                     <input type="text" name="title" id="title" class="form-control" placeholder="Descrição" required>
@@ -254,10 +255,11 @@
                                 <div class="form-group">
                                     <input type="text" name="horas" id="horas" class="form-control" placeholder="Horás" required>
                                 </div>
+                                <div id="edEresult" style="padding: 8px; font-size: 14px;"></div>
                                 
                 </div>
                 <div class="modal-footer">
-                        <button type="submit" id="edV" class="btn btn-primary">Guardar</button>
+                        <button type="submit" id="edEvent" class="btn btn-primary">Guardar</button>
                     
                     <button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
                     

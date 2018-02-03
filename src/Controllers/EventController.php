@@ -12,28 +12,33 @@ use App\Models\Event;
 class EventController extends Controller
 {
 
-   
-    /*
-     * @METHOD THAT ADD EVENT
-     */
     public function createEvent($request, $response)
     {
         $arr = explode("T", $_POST['tempo']);
         $Data = $arr[0];
         $Time = $arr[1];
 
+        $uid = $this->auth::userData();
+
+        $datas = [
+
+            'description'=> $_POST['desc'], 'local'=> $_POST['local'],
+            'locutor'=> $_POST['locutor'], 'e_date'=> $Data,
+            'e_time'=> $Time, 'user_id'=> $uid->id
+        ];
+
+        if(parent::isEmpty($datas)){
+
+            $data = ['resp'=>'no', 'msg'=>'Existem campos vazios.'];
+            echo json_encode($data);
+        }
+        
+        $datas = parent::scapeTags($datas);
+
+
         try {
             
-            Event::create([
-
-                'description'=> $_POST['desc'],
-                'local'=> $_POST['local'],
-                'locutor'=> $_POST['locutor'],
-                'e_date'=> $Data,
-                'e_time'=> $Time,
-                'user_id'=> $_POST['uid']
-
-            ]);
+            Event::create($datas);
 
             $data = ['resp'=>'yes', 'msg'=>'Cadastrado com sucesso.'];
             echo json_encode($data);
@@ -46,33 +51,39 @@ class EventController extends Controller
     }
     
 
-    /*
-    *  Methot that edit events 
-    */
     public function updateEvent($request, $response)
     {
         
-        $arr = explode(" ", $request->getParam('hora'));
+        $arr = explode(" ", $request->getParam('tempo'));
         $Data = $arr[0];
         $Time = $arr[1];
 
         $uid = $this->auth::userData();
 
         $datas = [
-        'description' => $_POST['desc'],
-        'local' => $_POST['local'],
-        'locutor' => $_POST['nome'],
-        'e_date' => $Data,
-        'e_time' => $Time,
-        'user_id' => $uid->id,
-        'updated_at' => date('Y-m-d H:i')
+
+            'description' => $_POST['desc'], 'local' => $_POST['local'],
+            'locutor' => $_POST['locutor'], 'e_date' => $Data,
+            'e_time' => $Time, 'user_id' => $uid->id
         ];
+
+
+        if(parent::isEmpty($datas)){
+
+            $data = ['resp'=>'no', 'msg'=>'Existem campos vazios.'];
+            echo json_encode($data);
+            exit;
+        }
         
+        $datas = parent::scapeTags($datas);
+
         try {
 
-            Event::where('id', $_POST['ide'])->update($datas);
+            $id = $_POST['uid'];
 
-            $data = ['resp'=>'yes', 'msg'=>'Cadastrado com sucesso.'];
+            Event::where('id', $id)->update($datas);
+
+            $data = ['resp'=>'yes', 'msg'=>'Editado com sucesso.'];
             echo json_encode($data);
 
         } catch (Exception $e) {
@@ -84,9 +95,7 @@ class EventController extends Controller
         
     }
 
-    /*
-    *  Methot to delete events 
-    */
+    
     public function deleteEvent($request, $response)
     {
         

@@ -2,11 +2,17 @@
 
 namespace App\Controllers;
 use App\Models\User;
+use App\Models\Event;
 
 class Auth
 {
     
-
+    public function push()
+    {
+        $date = date('Y/m/d', strtotime('+1 days'));
+        $push = Event::where('e_date', $date)->first();
+        return $push;
+    }
 
     public function checkUser($email, $passw)
     {

@@ -84,19 +84,6 @@
     
    
     <script type="text/javascript">
-        //Verify data
-        
-            
-        $('#deleteGuestModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget); 
-          var description = button.data('title');
-          var id = button.data('id');
-          
-          var modal = $(this);
-          modal.find('#guest-name').text("Deletar o(a) Sr(a) " + description + "?");
-          modal.find('#gid').val(id);
-          
-        });
 
         //Edit and Delete Events
         $('#eventModal').on('show.bs.modal', function (event) {
@@ -108,10 +95,10 @@
           var ide = button.data('id');
           
           var modal = $(this);
-          modal.find('#desc').val(description);
-          modal.find('#nome').val(rnome);
-          modal.find('#local').val(local);
-          modal.find('#hora').val(hora);
+          modal.find('#title').val(description);
+          modal.find('#name').val(rnome);
+          modal.find('#loca').val(local);
+          modal.find('#horas').val(hora);
           modal.find('#ide').val(ide);
           
         });
