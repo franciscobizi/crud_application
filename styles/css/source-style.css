@@ -8,8 +8,8 @@ and open the template in the editor.
     Author     : Taylorsoft
 */
 
-body {
-  background: url("../img/bg.png") no-repeat center fixed;
+body{
+  background: url("../img/bcg.png") no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

@@ -23,7 +23,16 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
         <!--JQUEQY-->
         <script src="{{ base_url() }}/styles/js/jquery-3.2.1.min.js"></script>
-      
+          <style type="text/css">
+            body{
+              background: url("{{ base_url() }}/styles/img/2.jpg") no-repeat center fixed;
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+            }
+        </style>
+     
     </head>
     <body>
         
@@ -42,7 +51,7 @@
         <form class="navbar-form navbar-left" role="search" method="post" action="{{ base_url() }}/search">
                   
             <div class="form-group  has-feedback">  
-            <input type="text" class="form-control placeholder" name="search" placeholder="Por KAP ou nº telefónico">
+            <input type="text" class="form-control placeholder" name="search" placeholder="Localize evento por data">
             <a><span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span></a>
             </div>
                   
