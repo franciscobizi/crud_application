@@ -1,5 +1,5 @@
 # crud_application
-##A litle project of CRUD App
+## A litle project of CRUD App
 
 Make sure before using this application you had created your own 
 DB and connect it with correct credentials.
@@ -11,15 +11,15 @@ Enjoy...
 - JavaScript 
 - SQL
 
-The App was build with tecnologies above.
+The App was built using above tecnologies.
 
 **Framework**
 
-- [Slim 3] (https://www.slimframework.com/)
+- [Slim 3](https://www.slimframework.com/)
 
 **Template engine** 
 
-- [Twig] (https://twig.symfony.com/)
+- [Twig](https://twig.symfony.com/)
 
 **Libraries**
 
