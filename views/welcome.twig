@@ -23,7 +23,7 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
         <style type="text/css">
             body{
-              background: url("{{ base_url() }}/styles/img/bcg.png") no-repeat center fixed;
+              background: url("{{ base_url() }}/styles/img/2.jpg") no-repeat center fixed;
               -webkit-background-size: cover;
               -moz-background-size: cover;
               -o-background-size: cover;
@@ -63,7 +63,7 @@
                             </li>
                             <li class="list-group-item text-muted">
                                <div class="form-group">
-                                    <button  id="signin" class="btn btn-block">Entrar</button>
+                                    <button  id="signin" class="btn btn-secundary" style="font-weight: bold;">Entrar</button>
                                 </div>
                             </li>
                         </ul>
@@ -79,42 +79,7 @@
         <!-- Bootstrap Core JavaScript -->
         <script src="{{ base_url() }}/styles/js/bootstrap.min.js"></script>
         
-        <script type="text/javascript">
-            // Authentication
-            $("#signin").click(function(){
-             
-                var mail = $("#mail").val();
-                var pass = $("#pass").val();
-                                        
-                $.ajax({
-                                            
-                    method: 'POST',
-                    url: 'http://localhost/crud_application/signin',
-                    dataType: 'json',
-                    data: {email: mail, passw: pass},
-                    success: function(data){
-                        var field = data['resp'];
-                        var msg = data['msg'];
-                                                                                    
-                        switch(field){
-                                                            
-                            case 'yes':
-                                window.location="http://localhost/crud_application/user";
-                            break;
-                            case 'no':
-                                $("#result").removeClass('text-success');
-                                $("#result").addClass('text-danger text-center').text(msg);
-                                            
-                            break;
-                            default:
-                                                               
-                        }
-                                                      
-                   }
-                });
-            });
-        </script>
-
+        {% include 'ajax/ajax.html' %}
    
     </body>
 </html>
