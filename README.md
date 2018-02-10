@@ -4,6 +4,8 @@
 Make sure before using this application you had created your own 
 DB and connect it with correct credentials.
 
+![Credential page](https://github.com/franciscobizi/crud_application/blob/master/styles/screens/Screenshot_7.png)
+
 Enjoy...
 
 **Tecnologies**
@@ -26,6 +28,9 @@ The App was built using above tecnologies.
 - ORM Eloquent 
 - JQuery 
 - Bootstrap
+
+**Screenshot**
+![Admin page](https://github.com/franciscobizi/crud_application/blob/master/styles/screens/Screenshot_1.png)
 
 **Author**
 
