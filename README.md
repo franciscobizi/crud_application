@@ -32,6 +32,9 @@ The App was built using above tecnologies.
 **Screenshot**
 ![Admin page](https://github.com/franciscobizi/crud_application/blob/master/styles/screens/Screenshot_1.png)
 
-**Author**
+![Add page](https://github.com/franciscobizi/crud_application/blob/master/styles/screens/Screenshot_2.png)
 
-Franciso Bizi
+### Author
+**Franciso Bizi**
+
+
